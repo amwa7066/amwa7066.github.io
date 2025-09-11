@@ -1,0 +1,64 @@
+
+html, body {
+  font-family: "bc-ludva", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+header {
+  background-color: #EEE5E9; /* purple */
+  color: black;             /* makes text readable */
+  padding: 20px;            /* gives breathing room */
+  text-align: center;       /* centers your name + tagline */
+}
+a {
+  color: #CC2836; /* red */
+  text-decoration: none; /* optional: removes underline */
+}
+
+a:hover {
+  text-decoration: underline; /* adds underline on hover */
+}
+
+
+h1, h2 {
+  font-family: "bc-ludva-slant", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  color: #07354B 
+}
+
+h1 { font-size: 80px; margin: 10px 0; color: #07354B  }
+h2 { font-size: 48px; margin: 10px 0; color: #07354B }
+h3 { font-size: 36px; margin: 10px 0; color: #07354B }
+h4 {
+    font-size: 18px; margin: 10px 0;
+    color: #6B818C }
+p  { font-size: 30px; margin: 10px 0; }
+
+ul { font-size: 24px; margin: 10px 0; }
+small { font-size: 24px; margin: 10px 0; display: block; }
+
+img {
+  display: block;
+  margin: 20px auto; /* auto left/right = centers */
+}
+
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center; /* centers the links */
+  gap: 2rem; /* spacing between links */
+  padding: 0;
+  margin: 20px 0 0; /* add space above */
+}
+
+nav a {
+  font-weight: bold;
+  text-decoration: none;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
