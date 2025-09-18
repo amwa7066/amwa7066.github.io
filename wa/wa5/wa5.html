@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Community Garden Card</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      font-family: sans-serif;
+    }
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .expand-btn {
+      border: none;
+      border-radius: 50%;
+      width: 32px;
+      height: 32px;
+      cursor: pointer;
+    }
+    .expand-btn:hover, .expand-btn:focus {
+      background: #eee;
+      outline: none;
+    }
+    .hidden { display: none; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="card-header">
+      <h3>Community Garden Project</h3>
+      <button class="expand-btn" aria-expanded="false" aria-label="Expand card">+</button>
+    </div>
+    <p class="summary">Join neighbors in creating a shared growing space...</p>
+    <div class="details hidden">
+      <p>Meeting every Saturday at 10am. Tools provided. All skill levels welcome.</p>
+      <p>Contact: garden@community.org</p>
+    </div>
+  </div>
+
+  <script>
+    const btn = document.querySelector('.expand-btn');
+    const details = document.querySelector('.details');
+
+    function toggleDetails() {
+      const isHidden = details.classList.toggle('hidden');
+      btn.textContent = isHidden ? '+' : '−';
+      btn.setAttribute('aria-label', isHidden ? 'Expand card' : 'Collapse card');
+      btn.setAttribute('aria-expanded', !isHidden);
+    }
+
+    // Works with mouse *and* Enter/Space automatically since it's a <button>
+    btn.addEventListener('click', toggleDetails);
+  </script>
+</body>
+</html>
