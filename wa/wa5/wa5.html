@@ -54,8 +54,6 @@
       btn.setAttribute('aria-label', isHidden ? 'Expand card' : 'Collapse card');
       btn.setAttribute('aria-expanded', !isHidden);
     }
-
-    // Works with mouse *and* Enter/Space automatically since it's a <button>
     btn.addEventListener('click', toggleDetails);
   </script>
 </body>
