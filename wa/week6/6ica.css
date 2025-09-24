@@ -5,7 +5,11 @@
     "nav sidebar"
     "main sidebar";
   grid-template-columns: 2fr 1fr;
-  grid-template-rows: 50px 1fr;
+  grid-template-rows: auto auto 1fr;
+  gap: 1rem;
+  max-width: 1000px;
+  margin: auto;
+  padding: 1rem;
 }
 
 .gallery-header { grid-area: header; }
