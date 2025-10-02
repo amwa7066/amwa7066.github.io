@@ -142,11 +142,28 @@ font-style: normal;
   grid-column: span 2;
 }
 
-.timesheet-header {
-  grid-area: header;
-  text-align: center;
-  padding: 2rem 1rem 1rem;
-  margin-top: 4rem; /* pushes Timesheet title below navbar */
-  font-size: 2rem;
-  font-weight: bold;
+body.light {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+body.dark {
+  background-color: #1a1a1a;
+  color: #f9f9f9;
+}
+
+.theme-toggle button {
+  margin-left: 8px;
+  padding: 4px 8px;
+  font-size: 14px;
+  border: 1px solid #333;
+  border-radius: 4px;
+  background: #eee;
+  cursor: pointer;
+}
+
+body.dark .theme-toggle button {
+  background: #333;
+  color: #f9f9f9;
+  border-color: #f9f9f9;
 }
