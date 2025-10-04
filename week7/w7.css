@@ -1,0 +1,188 @@
+.main-nav {
+    display: flex;
+    justify-content: space-between;
+    background-color: coral;
+    padding: 0.5rem 1rem; 
+}
+
+.nav-menu {
+    display: flex;
+    gap: 2em;
+    list-style: none;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    padding: 0.5rem;
+    color: black;
+}
+
+.nav-menu a:hover {
+    background-color: coral;
+    border-radius: 4px;
+}
+.nav-toggle:focus,
+.nav-toggle:hover {
+  outline: 2px solid black;
+  background-color: rgba(0,0,0,0.1);
+}
+
+@media screen and (max-width: 768px) {
+   .nav-toggle {
+      display: flex;
+      flex-direction: column;
+      background: none;
+      border: none;
+      cursor: pointer;
+   } 
+
+   .hamburger {
+      background-color: black;
+      height: 6px;
+      width: 40px;
+      margin: 3px 0;
+      display: block;
+   }
+
+   .nav-menu {
+      display: none;
+      flex-direction: column;
+   }
+
+   .nav-menu.show {
+      position: absolute;
+      top: 90px;
+      right: 0;
+      height: 200px;
+      width: 150px;
+      background-color: thistle;
+      padding: 5px;
+      justify-content: center;
+      align-items: center;
+      display: flex;
+   }
+}
+.nav-brand {
+font-family: "estrojeune", sans-serif;
+font-size: 50px;
+font-weight: 400;
+font-style: normal;
+
+}
+.nav-menu a {
+font-family: "estrojeune", sans-serif;
+font-size: 30px;
+font-style: normal;
+
+
+  font-weight: 600;
+}
+
+h1, h2, h3 {
+font-family: "estrojeune", sans-serif;
+font-style: normal;
+
+}
+
+.timesheet-page {
+  display: grid;
+  grid-template-areas:
+    "header"
+    "nav"
+    "grid"
+    "footer";
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto 1fr auto;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.timesheet-header { grid-area: header; }
+.timesheet-grid { 
+  grid-area: grid; 
+  display: grid;
+  grid-template-columns: 1fr 2fr; 
+  gap: 0.5rem;
+  background: #fafafa;
+  padding: 1rem;
+  border-radius: 6px;
+}
+.timesheet-grid .day {
+  font-weight: bold;
+  background: peachpuff;
+  padding: 0.5rem;
+  border-radius: 4px;
+}
+.timesheet-grid .hours {
+  background: thistle;
+  padding: 0.5rem;
+  border-radius: 4px;
+}
+.timesheet-footer { grid-area: footer; text-align: center; }
+
+.photo-grid {
+  grid-area: main;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.photo-card {
+  background: peachpuff;
+  padding: 40px;
+  text-align: center;
+  border-radius: 6px;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.photo-card.featured {
+  background: coral;
+  grid-column: span 2;
+}
+
+body.light {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+body.dark {
+  background-color: #1a1a1a;
+  color: #f9f9f9;
+}
+
+.theme-toggle button {
+  margin-left: 8px;
+  padding: 4px 8px;
+  font-size: 14px;
+  border: 1px solid #333;
+  border-radius: 4px;
+  background: #eee;
+  cursor: pointer;
+}
+
+body.dark .theme-toggle button {
+  background: #333;
+  color: #f9f9f9;
+  border-color: #f9f9f9;
+}
+@container (max-width: 400px) {
+  .photo-card.featured {
+    grid-column: span 1;
+  }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  .photo-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .nav-menu a {
+    font-size: 24px;
+  }
+
+  .photo-card {
+    padding: 20px;
+  }
+}

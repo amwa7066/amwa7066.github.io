@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nanny Hub - Timesheet</title>
+  <link rel="stylesheet" href="w7.css">
+  <link rel="stylesheet" href="https://use.typekit.net/zez6hmg.css">
+</head>
+<body class="timesheet-page">
+  <nav class="main-nav">
+    <div class="nav-brand">The Nanny Hub</div>
+    <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+      <span class="hamburger"></span>
+      <span class="hamburger"></span>
+      <span class="hamburger"></span>
+    </button>
+    <ul class="nav-menu">
+      <li><a href="week7.html">Home</a></li>
+      <li><a href="time7.html">Timesheets</a></li>
+      <li><a href="#availability">Availability</a></li>
+      <li><a href="#messaging">Messaging</a></li>
+    </ul>
+  </nav>
+
+  <header>
+    <h1>Weekly Timesheet</h1>
+    <p>Log your hours for the week.</p>
+  </header>
+
+  <main class="timesheet-grid">
+    <div class="day">Monday</div>
+    <div class="hours">8:00 AM – 4:00 PM</div>
+
+    <div class="day">Tuesday</div>
+    <div class="hours">9:00 AM – 5:00 PM</div>
+
+    <div class="day">Wednesday</div>
+    <div class="hours">8:00 AM – 2:00 PM</div>
+
+    <div class="day">Thursday</div>
+    <div class="hours">10:00 AM – 6:00 PM</div>
+
+    <div class="day">Friday</div>
+    <div class="hours">8:00 AM – 3:00 PM</div>
+  </main>
+
+ <footer class="site-footer">
+  <p>&copy; 2025 The Nanny Hub</p>
+  <div class="theme-toggle">
+    <button onclick="setTheme('light')">☀️ Light</button>
+    <button onclick="setTheme('dark')">🌙 Dark</button>
+    <button onclick="clearData()">🗑️ Clear My Data</button>
+  </div>
+  <p><a href="privacy.html">Privacy Statement</a></p>
+</footer>
+
+
+<script src="w7.js"></script>
+</body>
+</html>
