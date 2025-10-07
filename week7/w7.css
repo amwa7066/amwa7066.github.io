@@ -63,28 +63,38 @@
    }
 }
 .nav-brand {
-font-family: "estrojeune", sans-serif;
-font-size: 50px;
+font-family: "benton-modern-display-compre", serif;
 font-weight: 400;
 font-style: normal;
+font-size: 50px;
+
 
 }
 .nav-menu a {
-font-family: "estrojeune", sans-serif;
+font-family: "benton-modern-display-compre", serif;
+font-weight: 600;
 font-size: 30px;
-font-style: normal;
+font-style: italic;
 
 
   font-weight: 600;
 }
 
 h1, h2, h3 {
-font-family: "estrojeune", sans-serif;
-font-style: normal;
+font-family: "benton-modern-display-compre", serif;
+font-weight: 600;
+font-style: italic;
 
 }
 
+p{
+  font-family: "elza-text", sans-serif;
+font-weight: 300;
+font-style: normal;
+}
+
 .timesheet-page {
+  
   display: grid;
   grid-template-areas:
     "header"
