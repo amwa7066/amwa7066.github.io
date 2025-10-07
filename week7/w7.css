@@ -196,3 +196,6 @@ body.dark .theme-toggle button {
     padding: 20px;
   }
 }
+html {
+  font-display: swap;
+}
