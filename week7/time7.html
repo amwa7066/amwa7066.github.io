@@ -3,11 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nanny Hub - Timesheet</title>
+  <title>Nanny Hub - Timesheets</title>
   <link rel="stylesheet" href="w7.css">
+  <link rel="preconnect" href="https://use.typekit.net" crossorigin>
   <link rel="stylesheet" href="https://use.typekit.net/zez6hmg.css">
 </head>
-<body class="timesheet-page">
+<body class="light">
+
   <nav class="main-nav">
     <div class="nav-brand">The Nanny Hub</div>
     <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
@@ -17,46 +19,81 @@
     </button>
     <ul class="nav-menu">
       <li><a href="week7.html">Home</a></li>
-      <li><a href="time7.html">Timesheets</a></li>
+      <li><a href="time7.html" class="active">Timesheets</a></li>
       <li><a href="availability.html">Availability</a></li>
       <li><a href="messaging.html">Messaging</a></li>
     </ul>
   </nav>
 
   <header>
-    <h1>Weekly Timesheet</h1>
-    <p>Log your hours for the week.</p>
+    <h1>Timesheet</h1>
+    <p>Enter your hours below and save them for later.</p>
   </header>
 
-  <main class="timesheet-grid">
-    
-    <div class="day">Monday</div>
-    <div class="hours">8:00 AM – 4:00 PM</div>
+  <main>
+    <form id="timesheetForm">
+      <label for="date">Date:</label>
+      <input type="date" id="date" required>
 
-    <div class="day">Tuesday</div>
-    <div class="hours">9:00 AM – 5:00 PM</div>
+      <label for="hours">Hours Worked:</label>
+      <input type="number" id="hours" placeholder="e.g. 5" required>
 
-    <div class="day">Wednesday</div>
-    <div class="hours">8:00 AM – 2:00 PM</div>
+      <label for="notes">Notes:</label>
+      <input type="text" id="notes" placeholder="Optional">
 
-    <div class="day">Thursday</div>
-    <div class="hours">10:00 AM – 6:00 PM</div>
+      <button type="submit">Save Entry</button>
+    </form>
 
-    <div class="day">Friday</div>
-    <div class="hours">8:00 AM – 3:00 PM</div>
+    <h2>Saved Hours</h2>
+    <table id="timesheetTable" border="1">
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Hours</th>
+          <th>Notes</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
   </main>
 
- <footer class="site-footer">
-  <div class="theme-toggle">
-    <button onclick="setTheme('light')">☀️ Light</button>
-    <button onclick="setTheme('dark')">🌙 Dark</button>
-    <button onclick="clearData()">🗑️ Clear My Data</button>
-  </div>
-    <p><a href="privacy.html">Privacy Statement</a></p>
-     <p>&copy; 2025 The Nanny Hub</p>
-</footer>
+  <footer>
+    <p>&copy; 2025 The Nanny Hub</p>
+  </footer>
 
+  <script>
+    const form = document.getElementById('timesheetForm');
+    const tableBody = document.querySelector('#timesheetTable tbody');
 
-<script src="w7.js"></script>
+    //load saved
+    const saved = JSON.parse(localStorage.getItem('timesheet')) || [];
+    saved.forEach(entry => addRow(entry));
+
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+
+      const date = document.getElementById('date').value;
+      const hours = document.getElementById('hours').value;
+      const notes = document.getElementById('notes').value;
+
+      const entry = { date, hours, notes };
+      saved.push(entry);
+      localStorage.setItem('timesheet', JSON.stringify(saved));
+
+      addRow(entry);
+      form.reset();
+    });
+
+    function addRow(entry) {
+      const row = document.createElement('tr');
+      row.innerHTML = `
+        <td>${entry.date}</td>
+        <td>${entry.hours}</td>
+        <td>${entry.notes}</td>
+      `;
+      tableBody.appendChild(row);
+    }
+  </script>
+
 </body>
 </html>
