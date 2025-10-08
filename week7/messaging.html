@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nanny Hub - Messaging</title>
+  <link rel="stylesheet" href="w7.css">
+  <link rel="preconnect" href="https://use.typekit.net" crossorigin>
+<link rel="stylesheet" href="https://use.typekit.net/zez6hmg.css">
+
+</head>
+<body class="light">
+
+  <nav class="main-nav">
+    <div class="nav-brand">The Nanny Hub</div>
+    <ul class="nav-menu">
+      <li><a href="week7.html">Home</a></li>
+      <li><a href="time7.html">Timesheets</a></li>
+      <li><a href="availability.html">Availability</a></li>
+      <li><a href="messaging.html" class="active">Messaging</a></li>
+    </ul>
+  </nav>
+
+  <header>
+    <h1>Messaging</h1>
+  </header>
+
+  <main>
+    <form id="messageForm">
+      <input type="text" id="sender" placeholder="Your name" required>
+      <input type="text" id="messageText" placeholder="Your message" required>
+      <button type="submit">Send</button>
+    </form>
+
+    <ul id="messageList"></ul>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 The Nanny Hub</p>
+  </footer>
+
+  <script>
+    const form = document.getElementById('messageForm');
+    const list = document.getElementById('messageList');
+
+    // Load saved messages
+    const saved = JSON.parse(localStorage.getItem('messages')) || [];
+    saved.forEach(msg => {
+      const li = document.createElement('li');
+      li.textContent = msg.sender + ': ' + msg.text;
+      list.appendChild(li);
+    });
+
+    // Handle form submit
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      const sender = document.getElementById('sender').value;
+      const text = document.getElementById('messageText').value;
+
+      const message = { sender, text };
+      saved.push(message);
+      localStorage.setItem('messages', JSON.stringify(saved));
+
+      const li = document.createElement('li');
+      li.textContent = sender + ': ' + text;
+      list.appendChild(li);
+
+      form.reset();
+    });
+  </script>
+
+</body>
+</html>

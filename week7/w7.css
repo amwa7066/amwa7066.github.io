@@ -92,6 +92,12 @@ p{
 font-weight: 300;
 font-style: normal;
 }
+body, p, li, ul, ol {
+  font-family: "elza-text", sans-serif;
+font-weight: 300;
+font-style: normal;
+}
+
 
 .timesheet-page {
   
@@ -198,4 +204,9 @@ body.dark .theme-toggle button {
 }
 html {
   font-display: swap;
+}
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
 }
