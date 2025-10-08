@@ -19,21 +19,20 @@ if (navToggle) {
 function setTheme(theme) {
   localStorage.setItem('userTheme', theme);
   document.body.className = theme;
+    const data = { value: theme, saved: Date.now() };
+  localStorage.setItem('userTheme', JSON.stringify(data));
+  document.body.className = theme;
 }
 
 window.addEventListener('load', function() {
   const savedTheme = localStorage.getItem('userTheme') || 'light';
   document.body.className = savedTheme;
 });
+
 function clearData() {
   localStorage.clear();
   document.body.className = 'light'; 
   alert("Your saved data has been cleared.");
-}
-function setTheme(theme) {
-  const data = { value: theme, saved: Date.now() };
-  localStorage.setItem('userTheme', JSON.stringify(data));
-  document.body.className = theme;
 }
 
 window.addEventListener('load', () => {

@@ -6,14 +6,13 @@
   <title>Nanny Hub - Messaging</title>
   <link rel="stylesheet" href="w7.css">
   <link rel="preconnect" href="https://use.typekit.net" crossorigin>
-<link rel="stylesheet" href="https://use.typekit.net/zez6hmg.css">
-
+  <link rel="stylesheet" href="https://use.typekit.net/zez6hmg.css">
 </head>
 <body class="light">
 
   <nav class="main-nav">
     <div class="nav-brand">The Nanny Hub</div>
-      <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+    <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
       <span class="hamburger"></span>
       <span class="hamburger"></span>
       <span class="hamburger"></span>
@@ -32,47 +31,60 @@
 
   <main>
     <form id="messageForm">
+      <label for="recipient">To:</label>
+      <input type="text" id="recipient" placeholder="Recipient name" required>
+
+      <label for="sender">From:</label>
       <input type="text" id="sender" placeholder="Your name" required>
-      <input type="text" id="messageText" placeholder="Your message" required>
+
+      <label for="messageText">Your message:</label>
+      <textarea id="messageText" placeholder="Type your message here..." required></textarea>
+
       <button type="submit">Send</button>
     </form>
 
     <ul id="messageList"></ul>
   </main>
 
-  <footer>
-    <p>&copy; 2025 The Nanny Hub</p>
-  </footer>
-
   <script>
     const form = document.getElementById('messageForm');
     const list = document.getElementById('messageList');
 
-    // Load saved messages
     const saved = JSON.parse(localStorage.getItem('messages')) || [];
     saved.forEach(msg => {
       const li = document.createElement('li');
-      li.textContent = msg.sender + ': ' + msg.text;
+      li.textContent = `To ${msg.recipient} — From ${msg.sender}: ${msg.text}`;
       list.appendChild(li);
     });
 
-    // Handle form submit
     form.addEventListener('submit', e => {
       e.preventDefault();
+      const recipient = document.getElementById('recipient').value;
       const sender = document.getElementById('sender').value;
       const text = document.getElementById('messageText').value;
 
-      const message = { sender, text };
+      const message = { recipient, sender, text };
       saved.push(message);
       localStorage.setItem('messages', JSON.stringify(saved));
 
       const li = document.createElement('li');
-      li.textContent = sender + ': ' + text;
+      li.textContent = `To ${recipient} — From ${sender}: ${text}`;
       list.appendChild(li);
 
       form.reset();
     });
   </script>
+
+ <footer class="site-footer">
+  <div class="theme-toggle">
+    <button onclick="setTheme('light')">☀️ Light</button>
+    <button onclick="setTheme('dark')">🌙 Dark</button>
+    <button onclick="clearData()">🗑️ Clear My Data</button>
+  </div>
+    <p><a href="privacy.html">Privacy Statement</a></p>
+     <p>&copy; 2025 The Nanny Hub</p>
+</footer>
+
 
 </body>
 </html>
