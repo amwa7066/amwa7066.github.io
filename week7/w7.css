@@ -235,3 +235,35 @@ textarea {
   padding: 0.75em;
   border-radius: 8px;
 }
+/* Call-To-Action Section Styles */
+.cta-section {
+  text-align: center;
+  padding: 2em;
+  background-color: #fef9f4;
+  border-top: 1px solid #ccc;
+}
+
+.cta-button {
+  background-color: #f7931e; /* Friendly orange */
+  color: white;
+  border: none;
+  padding: 1em 2em;
+  font-size: 1.2rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.cta-button:hover,
+.cta-button:focus {
+  transform: scale(1.08);
+  background-color: #ff9f33;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cta-button {
+    transition: none;
+    transform: none;
+  }
+}
