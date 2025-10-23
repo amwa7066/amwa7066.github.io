@@ -8,7 +8,6 @@ async function getDuck() {
   duckImg.style.opacity = 0;
 
   try {
-    // Use a proxy so it works on GitHub Pages
     const res = await fetch('https://corsproxy.io/?https://random-d.uk/api/v2/random');
     if (!res.ok) throw new Error("Network response not ok");
     const data = await res.json();
