@@ -1,122 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Random Duck Generator 🦆</title>
-  <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
-      background-color: #c9bd95;
-      color: #222;
-    }
-
-    .app {
-      max-width: 600px;
-      margin: 60px auto;
-      background-color: white;
-      border-radius: 10px;
-      box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12);
-      padding: 30px;
-      text-align: center;
-    }
-
-    header {
-      font-size: 28px;
-      border-bottom: 1px solid #ebebeb;
-      padding-bottom: 10px;
-      margin-bottom: 20px;
-    }
-
-    #duck-image {
-      width: 100%;
-      max-width: 500px;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-      display: none;
-    }
-
-    .button {
-      display: inline-block;
-      color: white;
-      background-color: #4A2B0F;
-      border-radius: 4px;
-      border: none;
-      padding: 10px 20px;
-      cursor: pointer;
-      font-size: 18px;
-      margin-top: 20px;
-      transition: 0.2s ease;
-    }
-
-    .button:hover {
-      background-color: #6d3b0e;
-    }
-
-    .status {
-      margin-top: 10px;
-      color: #555;
-      font-size: 16px;
-    }
-
-    .paragraphs {
-      background: white;
-      max-width: 600px;
-      margin: 40px auto;
-      padding: 20px 30px;
-      border-radius: 10px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.15);
-    }
-
-    .paragraphs p {
-      font-size: 16px;
-      margin-bottom: 15px;
-      line-height: 1.5;
-    }
-  </style>
+<link rel="stylesheet" href="https://use.typekit.net/zez6hmg.css">
+  <link rel="stylesheet" href="ica.css">
+</head>
 </head>
 <body>
 
   <div class="app">
-    <header>Random Duck Generator 🦆</header>
+    <header>🦆 Random Duck Generator 🦆</header>
     <img id="duck-image" src="" alt="Random Duck">
     <div class="status" id="duck-status">Click below to see a random duck!</div>
-    <button class="button" id="duck-button">Show Me a Duck</button>
+    <button class="button" id="duck-button">DUCK</button>
   </div>
 
-  <div class="paragraphs">
-    <p><strong>My Extension:</strong> I used the Random-D.uk API, which provides random duck images each time you click the button. This makes the quote machine more interactive and fun by adding a visual, unpredictable element that changes with every click.</p>
-    <p><strong>How I could use an API in my critique project:</strong> I could use an API to pull in real-time data, like trending topics or live environmental stats, to make my project dynamic and data-driven. For example, an API could display real-world updates related to my critique topic automatically.</p>
-  </div>
-
-  <script>
-    const duckBtn = document.getElementById('duck-button');
-    const duckImg = document.getElementById('duck-image');
-    const duckStatus = document.getElementById('duck-status');
-
-    async function getDuck() {
-      duckBtn.disabled = true;
-      duckStatus.textContent = "Loading duck...";
-      try {
-        const res = await fetch('https://random-d.uk/api/v2/random');
-        if (!res.ok) throw new Error("Network response not ok");
-        const data = await res.json();
-        duckImg.src = data.url;
-        duckImg.style.display = "block";
-        duckStatus.textContent = "Here's your duck! 🦆";
-      } catch (error) {
-        duckStatus.textContent = "Couldn't load duck. Try again.";
-        console.error("Duck fetch error:", error);
-      } finally {
-        duckBtn.disabled = false;
-      }
-    }
-
-    duckBtn.addEventListener('click', getDuck);
-  </script>
-
+  <script src="ica.js"></script>
 </body>
+<footer>
+  <p>
+    I included an API that generates a random duck image. When you press the button, it gets a random duck image and displays it. 
+
+   </p>
+   <p>
+     In my critique project, I could use an API to generate different blocks for the infinity scroll. It would be like different quotes but maybe reasons to stop scrolling, facts about technology effects on mental health, etc. 
+  </p>
+</footer>
 </html>
