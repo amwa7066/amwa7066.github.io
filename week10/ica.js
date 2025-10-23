@@ -1,54 +1,61 @@
-// 1. Select the "new quote" button
+// 1. Select elements
 const newQuoteButton = document.querySelector('#js-new-quote');
+const quoteText = document.querySelector('#js-quote-text');
+const answerText = document.querySelector('#js-answer-text');
+const duckImage = document.createElement('img');
+duckImage.id = 'duck-img';
+duckImage.style.width = '100%';
+duckImage.style.borderRadius = '8px';
+duckImage.style.marginTop = '15px';
 
 // 2. Add event listener for button click
 newQuoteButton.addEventListener('click', getQuote);
 
-// 3. API endpoint
-const endpoint = 'https://trivia.cyberwisp.com/getrandomchristmasquestion';
+// 3. API endpoints
+const triviaEndpoint = 'https://trivia.cyberwisp.com/getrandomchristmasquestion';
+const duckEndpoint = 'https://random-d.uk/api/v2/random';
 
-// 4. Define the getQuote function
+// 4. Get Trivia
 async function getQuote() {
-  console.log("Button clicked! Fetching trivia...");
-
+  console.log("Fetching trivia and duck image...");
+  
   try {
-    const response = await fetch(endpoint);
+    const triviaResponse = await fetch(triviaEndpoint);
+    const duckResponse = await fetch(duckEndpoint);
 
-    if (!response.ok) {
-      throw new Error(response.statusText);
+    if (!triviaResponse.ok || !duckResponse.ok) {
+      throw new Error("API error");
     }
 
-    const data = await response.json();
-    console.log("Fetched data:", data);
+    const triviaData = await triviaResponse.json();
+    const duckData = await duckResponse.json();
 
-    // Display the question and prepare answer
-    displayQuote(data.question, data.answer);
+    displayQuote(triviaData.question, triviaData.answer, duckData.url);
 
   } catch (error) {
-    console.error("Error fetching trivia:", error);
-    alert("Oops! Could not load trivia. Please try again.");
+    console.error("Error:", error);
+    alert("Oops! Could not load trivia or duck. Try again!");
   }
 }
 
-// 5. Define displayQuote function
-function displayQuote(question, answer) {
-  const quoteText = document.querySelector('#js-quote-text');
-  const answerText = document.querySelector('#js-answer-text');
-
-  // Show the question
+// 5. Display trivia + duck
+function displayQuote(question, answer, duckUrl) {
   quoteText.textContent = question;
-
-  // Hide the answer until user clicks button
   answerText.textContent = "";
+  
+  // Add duck image
+  const quotesSection = document.querySelector('.quotes');
+  duckImage.src = duckUrl;
+  if (!quotesSection.contains(duckImage)) {
+    quotesSection.appendChild(duckImage);
+  }
 
+  // Show answer when button clicked
   const answerButton = document.querySelector('#js-tweet');
   answerButton.onclick = () => {
     answerText.textContent = answer;
   };
 }
 
-// 6. Run getQuote automatically when page loads
-document.addEventListener('DOMContentLoaded', () => {
-  console.log("Page loaded — fetching initial trivia...");
-  getQuote();
-});
+// 6. Run on load
+document.addEventListener('DOMContentLoaded', getQuote);
