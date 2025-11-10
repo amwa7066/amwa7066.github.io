@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mindful Explore</title>
+  <link rel="stylesheet" href="wa12.css">
+</head>
+<body>
+  <header>
+    <h1>BOOKSTAGRAM</h1>
+    <p>discover books instead of endless scrolling.</p>
+  </header>
+
+  <main>
+    <section id="explore">
+      <h2>Explore Something New</h2>
+      <p>Take a break from your feed and find books about creativity, design, or mindfulness.</p>
+
+      <div class="search-bar">
+        <input id="searchInput" placeholder="Search for a topic..." />
+        <button onclick="searchBooks()">Search</button>
+      </div>
+
+      <div id="results"></div>
+    </section>
+
+    <section id="favorites-section">
+      <h2>Saved for Later</h2>
+      <p>Books you’ve saved for when you want inspiration beyond your algorithm.</p>
+      <ul id="favorites"></ul>
+      <div class="buttons">
+        <button onclick="exportFavorites()">Export Favorites</button>
+        <button onclick="clearFavorites()">Clear Favorites</button>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Designed by Amelia Walker — WA12 Systems Critique | Inspired by Instagram’s Explore page</p>
+  </footer>
+
+  <script src="wa12.js"></script>
+</body>
+</html>
