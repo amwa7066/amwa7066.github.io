@@ -1,4 +1,3 @@
-// --- SEARCH FUNCTION ---
 document.getElementById("searchBtn").addEventListener("click", searchBooks);
 
 async function searchBooks() {
@@ -34,7 +33,6 @@ async function searchBooks() {
 }
 
 
-// --- DISPLAY SEARCH RESULTS ---
 function displayResults(books) {
   const container = document.getElementById("results");
   container.innerHTML = "";
@@ -96,7 +94,6 @@ document.getElementById("clearBtn").onclick = () => {
 showFavorites();
 
 
-// --- INTERACTIVE CRITIQUE: overwhelm effect ---
 function critiqueOverwhelmEffect(resultCount) {
   const explore = document.getElementById("explore");
 
