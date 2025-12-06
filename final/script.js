@@ -1,4 +1,3 @@
-// TYPEWRITER EFFECT
 const typeElements = document.querySelectorAll('.typewriter');
 typeElements.forEach(el => {
 const text = el.textContent;
@@ -14,7 +13,6 @@ setTimeout(type, 80);
 type();
 });
 
-// Typewriter on JS page header text
 const jsTarget = document.getElementById('jsType');
 if (jsTarget) {
 const jsText = "experimenting with javascript ✧";
@@ -29,7 +27,6 @@ setTimeout(typeJS, 90);
 typeJS();
 }
 
-// LIGHT / DARK MODE
 const toggleBtn = document.getElementById('modeToggle');
 if (toggleBtn) {
 toggleBtn.addEventListener('click', () => {
@@ -37,7 +34,6 @@ document.body.classList.toggle('dark-mode');
 });
 }
 
-// CURSOR SPARKLE TRAIL
 document.addEventListener('mousemove', function(e) {
 const sparkle = document.createElement('div');
 sparkle.className = 'sparkle';
